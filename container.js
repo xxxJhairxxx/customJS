@@ -47,34 +47,32 @@ unlayer.registerTool({
       head: {
         css: function (values) {
           return `.video{
-                  width: 100%;
-                  min-height: 270px;
-                  position: relative;
-                  &.video-container {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    .img{
+                   
+                    &.video-container {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
                       width: 100%;
-                    }
-                  }
-                  &.video-icon{
-                      width: 100%;
-                      width: 100%;
-                      pointer-events: none;
-                      position: relative;
-                      .svg{
-                          position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          transform: translate(-50%, -50%);
-                          pointer-events: none;
+                      height: 100%;
+                      display: block;
+                      .img{
+                        width: 100%;
                       }
-                  }
-            }`;
+                    }
+                    &.video-icon{
+                        width: 100%;
+                        width: 100%;
+                        pointer-events: none;
+                        position: absolute;
+                        .svg{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            pointer-events: none;
+                        }
+                    }
+              }`;
         },
         js: function (values) {
           return `console.log("Tool JavaScript");`;
@@ -85,18 +83,27 @@ unlayer.registerTool({
   
   function getContainer(values) {
     const container = document.createElement("div");
-    container.classList.add("video");
+    container.setAttribute(
+      "style",
+      "width: 100%; min-height: 270px; position: relative;"
+    );
   
     const enlace = document.createElement("a");
-    enlace.classList.add("video-container");
+    enlace.setAttribute(
+      "style",
+      "position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;"
+    );
     enlace.href = values.videoLink.url;
     enlace.target = values.videoLink.target;
   
     const svgIcon = document.createElement("div");
-    svgIcon.classList.add("video-icon");
+    svgIcon.setAttribute(
+      "style",
+      "position: absolute; top: 0; left: 0; width: 100%; width: 100%; pointer-events: none"
+    );
     svgIcon.innerHTML = `
-          <svg class="svg" width="69px" height="69px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.248"> <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#1C274C"></path> <path d="M15.4137 13.059L10.6935 15.8458C9.93371 16.2944 9 15.7105 9 14.7868V9.21316C9 8.28947 9.93371 7.70561 10.6935 8.15419L15.4137 10.941C16.1954 11.4026 16.1954 12.5974 15.4137 13.059Z" fill="#1C274C"></path> </g><g id="SVGRepo_iconCarrier"> <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#1C274C"></path> <path d="M15.4137 13.059L10.6935 15.8458C9.93371 16.2944 9 15.7105 9 14.7868V9.21316C9 8.28947 9.93371 7.70561 10.6935 8.15419L15.4137 10.941C16.1954 11.4026 16.1954 12.5974 15.4137 13.059Z" fill="#1C274C"></path> </g></svg>
-      `;
+            <svg style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);pointer-events: none;" width="69px" height="69px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.248"> <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#1C274C"></path> <path d="M15.4137 13.059L10.6935 15.8458C9.93371 16.2944 9 15.7105 9 14.7868V9.21316C9 8.28947 9.93371 7.70561 10.6935 8.15419L15.4137 10.941C16.1954 11.4026 16.1954 12.5974 15.4137 13.059Z" fill="#1C274C"></path> </g><g id="SVGRepo_iconCarrier"> <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#1C274C"></path> <path d="M15.4137 13.059L10.6935 15.8458C9.93371 16.2944 9 15.7105 9 14.7868V9.21316C9 8.28947 9.93371 7.70561 10.6935 8.15419L15.4137 10.941C16.1954 11.4026 16.1954 12.5974 15.4137 13.059Z" fill="#1C274C"></path> </g></svg>
+        `;
     const imgElement = document.createElement("img");
     imgElement.classList.add("img");
     imgElement.src = getYouTubeThumbnail(values.videoLink.url);
