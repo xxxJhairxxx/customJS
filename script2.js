@@ -93,7 +93,7 @@ unlayer.registerTool({
   }
   
   function getYouTubeThumbnail(url) {
-    if(!url.includes("youtube") ) {return ""};
+    if(!url.includes("www.youtube.com") ) {return "https://omnichannel-prod-unlayer-resources.s3.us-east-1.amazonaws.com/1741989873012-blanco.png"};
 
     const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
     return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
