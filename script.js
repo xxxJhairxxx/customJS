@@ -13,9 +13,9 @@ unlayer.registerTool({
             position: 1,
             options: {
               Text: {
-                label: "Texto",
-                defaultValue: "I am a custom tool.",
-                widget: "text",
+                  label: "Texto",
+                  defaultValue: "I am a custom tool.",
+                  widget: "text"
               },
               textColor: {
                 label: "Text Color",
@@ -43,48 +43,21 @@ unlayer.registerTool({
     renderer: {
       Viewer: unlayer.createViewer({
         render(values) {
-          let div = document.createElement("div");
-          div.style.backgroundColor = values.backgroundColor;
-          div.style.color = values.textColor;
-          div.innerText = values.Text;
-  
-          let img = document.createElement("img");
-          img.src = values.imageBanner.url;
-          img.alt = "imagen";
-  
-          div.appendChild(img);
-  
-          return div;
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"> ${values.Text}</div>
+               <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
+            `;
         },
       }),
       exporters: {
         web: function (values) {
-          let div = document.createElement("div");
-          div.style.backgroundColor = values.backgroundColor;
-          div.style.color = values.textColor;
-          div.innerText = values.Text;
-  
-          let img = document.createElement("img");
-          img.src = values.imageBanner.url;
-          img.alt = "imagen";
-  
-          div.appendChild(img);
-  
-          return div;
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.Text}</div>
+                  <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
+              `;
         },
         email: function (values) {
-          let div = document.createElement("div");
-          div.style.backgroundColor = values.backgroundColor;
-          div.style.color = values.textColor;
-          div.innerText = values.Text;
-  
-          let img = document.createElement("img");
-          img.src = values.imageBanner.url;
-          img.alt = "imagen";
-  
-          div.appendChild(img);
-  
-          return div;
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.Text}</div>
+                 <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
+            `;
         },
       },
       head: {
