@@ -39,19 +39,19 @@ unlayer.registerTool({
         
         render(values) {
          
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"> ${values.text}</div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"></div>
                  <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
         },
       }),
       exporters: {
         web: function (values) {
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.text}</div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"></div>
                     <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
                 `;
         },
         email: function (values) {
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.text}</div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"></div>
                    <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
         },
@@ -61,7 +61,8 @@ unlayer.registerTool({
           return `#${values._meta.htmlID} `;
         },
         js: function (values) {
-          return `console.log("Tool JavaScript");console.log(${values});`;
+          return `console.log("Tool JavaScript");
+          console.log(${values});console.log(${values.textEdith});`;
         },
       },
     },
