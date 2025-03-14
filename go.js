@@ -40,13 +40,13 @@ unlayer.registerTool({
             },
             widget: "link",
           },
-          imageBanner: {
-            label: "Carga imagen",
-            defaultValue: {
-              url: "https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg",
-            },
-            widget: "image",
-          },
+        //   imageBanner: {
+        //     label: "Carga imagen",
+        //     defaultValue: {
+        //       url: "https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg",
+        //     },
+        //     widget: "image",
+        //   },
         },
       },
     },
@@ -89,20 +89,11 @@ unlayer.registerTool({
     enlace.target = "_blank";
   
     const imgElement = document.createElement("img");
-   
-  
-    if (values.imageBanner.url) {
-      imgElement.src = values.imageBanner.url;
-     
-    }else if (values.videoLink) {
-          imgElement.src= getYouTubeThumbnail(values.videoLink);
-    }
-   
+    imgElement.src= getYouTubeThumbnail(values.videoLink);
     imgElement.alt = "imagen";
     imgElement.style.width = "100%";
   
     enlace.appendChild(imgElement);
-  
     container.appendChild(textElement);
     container.appendChild(enlace);
   
