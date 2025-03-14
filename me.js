@@ -101,8 +101,9 @@ unlayer.registerTool({
 }
   
 function getYouTubeThumbnail(url) {
-    const match = url.match(/(?:v=|youtu\.be\/|embed\/|\/v\/|\/e\/|watch\?v=|watch\?.+&v=)([^&]+)/);
-    return match ? `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg` : "";
+    const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
+
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
 
