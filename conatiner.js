@@ -49,8 +49,11 @@ unlayer.registerTool({
           return `.video{
                   width: 100%;
                   min-height: 270px;
+                  position: relative;
                   &.video-container {
-                    position: relative;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
                     height: 100%;
                     display: block;
@@ -100,8 +103,8 @@ unlayer.registerTool({
     imgElement.alt = "Miniatura del video";
   
     enlace.appendChild(imgElement);
-    enlace.appendChild(svgIcon);
     container.appendChild(enlace);
+    container.appendChild(svgIcon);
   
     return container.outerHTML;
   }
