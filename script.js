@@ -30,15 +30,21 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        return `<div>I am a custom tool.</div>`;
+        return `<div>I am a custom tool.</div>
+           <img src="${values.image}" alt="imagen" width="100" height="100">
+        `;
       },
     }),
     exporters: {
       web: function (values) {
-        return `<div>I am a custom tool.</div>`;
+        return `<div>I am a custom tool.</div>
+              <img src="${values.image}" alt="imagen" width="100" height="100">
+          `;
       },
       email: function (values) {
-        return `<div>I am a custom tool.</div>`;
+        return `<div>I am a custom tool.</div>
+             <img src="${values.image}" alt="imagen" width="100" height="100">
+        `;
       },
     },
     head: {
