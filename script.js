@@ -18,6 +18,11 @@ unlayer.registerTool({
           defaultValue: '#FF0000',
           widget: 'color_picker',
         },
+        image:{
+          label:'carga imagen',
+          defaultValue:'https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg',
+          widget:'image'
+        }
       },
     },
   },
