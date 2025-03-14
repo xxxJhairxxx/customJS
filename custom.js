@@ -39,7 +39,7 @@ unlayer.registerTool({
       }),
       exporters: {
         web: function (values) {
-          return `<div>I am a custom tool.</div>
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
                 <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
             `;
         },
