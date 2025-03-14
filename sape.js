@@ -39,21 +39,15 @@ unlayer.registerTool({
         
         render(values) {
          
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
-                 <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
-              `;
+            return getContainer(values);
         },
       }),
       exporters: {
         web: function (values) {
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
-                    <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
-                `;
+            return getContainer(values);
         },
         email: function (values) {
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
-                   <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
-              `;
+            return getContainer(values);
         },
       },
       head: {
@@ -68,3 +62,23 @@ unlayer.registerTool({
     },
   });
   
+
+  function getContainer(values){
+    const container = document.createElement("div");
+    container.style.backgroundColor = values.backgroundColor;
+    container.style.color = values.textColor;
+
+    const textElement = document.createElement("div");
+    textElement.textContent = "I am a custom tool.";
+
+    const imgElement = document.createElement("img");
+    imgElement.src = values.imageBanner.url;
+    imgElement.alt = "imagen";
+    imgElement.width = 100;
+    imgElement.height = 100;
+
+    container.appendChild(textElement);
+    container.appendChild(imgElement);
+
+    return container.outerHTML
+  }
