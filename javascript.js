@@ -8,7 +8,7 @@ unlayer.registerTool({
         title: "Colors",
         position: 1,
         options: {
-          textEdith: {
+          textTitle: {
             label: "Texto",
             defaultValue: "I am a custom tool.",
             widget: "text",
@@ -23,6 +23,23 @@ unlayer.registerTool({
             defaultValue: "#000",
             widget: "color_picker",
           },
+        },
+      },
+      enlace: {
+        title: "Enlace",
+        position: 2,
+        options: {
+          videoLink: {
+            label: "Enlace del video",
+            defaultValue: {
+              name: "video",
+              values: {
+                href: "",
+                target: "_blank",
+              },
+            },
+            widget: "link",
+          },
           imageBanner: {
             label: "Carga imagen",
             defaultValue: {
@@ -36,18 +53,16 @@ unlayer.registerTool({
     values: {},
     renderer: {
       Viewer: unlayer.createViewer({
-        
         render(values) {
-         
-            return getContainer(values);
+          return getContainer(values);
         },
       }),
       exporters: {
         web: function (values) {
-            return getContainer(values);
+          return getContainer(values);
         },
         email: function (values) {
-            return getContainer(values);
+          return getContainer(values);
         },
       },
       head: {
@@ -61,23 +76,40 @@ unlayer.registerTool({
     },
   });
   
-
-  function getContainer(values){
+  function getContainer(values) {
     const container = document.createElement("div");
     container.style.backgroundColor = values.backgroundColor;
     container.style.color = values.textColor;
-
+  
     const textElement = document.createElement("p");
-    textElement.textContent = values.textEdith;
-
+    textElement.textContent = values.textTitle;
+  
+    const enlace = document.createElement("a");
+    enlace.href = values.videoLink;
+    enlace.target = "_blank";
+  
     const imgElement = document.createElement("img");
-    imgElement.src = values.imageBanner.url;
+   
+  
+    if (values.imageBanner.url) {
+      imgElement.src = values.imageBanner.url;
+     
+    }else if (values.videoLink) {
+          imgElement.src= getYouTubeThumbnail(values.videoLink);
+    }
+   
     imgElement.alt = "imagen";
-    imgElement.width = 100;
-    imgElement.height = 100;
-
+    imgElement.style.width = "100%";
+  
+    enlace.appendChild();
+  
     container.appendChild(textElement);
-    container.appendChild(imgElement);
-
-    return container.outerHTML
+  
+    return container.outerHTML;
   }
+  
+  function getYouTubeThumbnail(url) {
+    const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  }
+  
