@@ -54,10 +54,7 @@ unlayer.registerTool({
                       left: 0;
                       width: 100%;
                       height: 100%;
-                      display: block;
-                      .img{
-                        width: 100%;
-                      }
+                      display: block; 
                     }
                     &.video-icon{
                         width: 100%;
@@ -72,7 +69,11 @@ unlayer.registerTool({
                             pointer-events: none;
                         }
                     }
-              }`;
+              }
+              .img{
+                        width: 100%;
+                      }      
+              `;
         },
         js: function (values) {
           return `console.log("Tool JavaScript");`;
@@ -106,7 +107,7 @@ unlayer.registerTool({
         `;
     const imgElement = document.createElement("img");
     imgElement.classList.add("img");
-    imgElement.setAttribute("style", "width: 100%;");
+    // imgElement.setAttribute("style", "width: 100%;");
     imgElement.src = getYouTubeThumbnail(values.videoLink.url);
     imgElement.alt = "Miniatura del video";
   
@@ -119,7 +120,6 @@ unlayer.registerTool({
   
   function getYouTubeThumbnail(url) {
     const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
-  
     return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   }
   
