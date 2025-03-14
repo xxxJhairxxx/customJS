@@ -10,12 +10,12 @@ unlayer.registerTool({
       options: {
         textColor: {
           label: 'Text Color',
-          defaultValue: '#FFF',
+          defaultValue: '#red',
           widget: 'color_picker',
         },
         backgroundColor: {
           label: 'Background Color',
-          defaultValue: '#FF0000',
+          defaultValue: '#000',
           widget: 'color_picker',
         },
         imageBanner: {
