@@ -24,7 +24,7 @@ unlayer.registerTool({
             widget: "color_picker",
           },
           imageBanner: {
-            label: "carga imagen",
+            label: "Carga imagen",
             defaultValue: {
               url: "https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg",
             },
@@ -55,8 +55,7 @@ unlayer.registerTool({
           return `#${values._meta.htmlID} `;
         },
         js: function (values) {
-          return `console.log("Tool JavaScript");
-          console.log(${values});console.log(${values.textEdith});`;
+          return `console.log("Tool JavaScript");`;
         },
       },
     },
@@ -68,8 +67,8 @@ unlayer.registerTool({
     container.style.backgroundColor = values.backgroundColor;
     container.style.color = values.textColor;
 
-    const textElement = document.createElement("div");
-    textElement.textContent = "I am a custom tool.";
+    const textElement = document.createElement("p");
+    textElement.textContent = values.textEdith;
 
     const imgElement = document.createElement("img");
     imgElement.src = values.imageBanner.url;
