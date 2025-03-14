@@ -38,7 +38,7 @@ unlayer.registerTool({
       Viewer: unlayer.createViewer({
         
         render(values) {
-          console.log(values);
+         
         return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"> ${values.text}</div>
                  <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
@@ -51,6 +51,7 @@ unlayer.registerTool({
                 `;
         },
         email: function (values) {
+            console.log(values);
         return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.text}</div>
                    <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
