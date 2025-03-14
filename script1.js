@@ -13,7 +13,7 @@ unlayer.registerTool({
             defaultValue: {
               name: "video",
               values: {
-                href: "https://www.youtube.com/watch?v=hb6GwGPFibI",
+                href: "",
                 target: "_blank",
               },
             },
