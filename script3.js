@@ -12,12 +12,9 @@ unlayer.registerTool({
             label: "Enlace del video",
             defaultValue: {
               name: "video",
-              values: {
-                href: "",
-                target: "_blank",
-              },
+              values: "",
             },
-            widget: "link",
+            widget: "text",
           },
           //   imageBanner: {
           //     label: "Carga imagen",
@@ -68,8 +65,8 @@ unlayer.registerTool({
       "style",
       "width: 100%; height: 100%; display: block;"
     );
-    enlace.href = values.videoLink.url;
-    enlace.target = values.videoLink.target;
+    enlace.href = values.videoLink;
+    enlace.target = '_blank';
   
     const svgIcon = document.createElement("div");
     svgIcon.setAttribute(
@@ -82,7 +79,7 @@ unlayer.registerTool({
     const imgElement = document.createElement("img");
     imgElement.classList.add("img");
     imgElement.setAttribute("style", "width: 100%;");
-    imgElement.src = getYouTubeThumbnail(values.videoLink.url);
+    imgElement.src = getYouTubeThumbnail(values.videoLink);
     imgElement.alt = "Miniatura del video";
   
     enlace.appendChild(imgElement);
