@@ -85,12 +85,11 @@ unlayer.registerTool({
     textElement.textContent = values.textTitle || "Texto predeterminado";
 
     const enlace = document.createElement("a");
-    const videoUrl = typeof values.videoLink === "object" ? values.videoLink.href : values.videoLink;
-    enlace.href = videoUrl || "#";
-    enlace.target = "_blank";
+    enlace.href = values.videoLink.url;
+    enlace.target =values.videoLink.target;
 
     const imgElement = document.createElement("img");
-    imgElement.src = getYouTubeThumbnail(videoUrl);
+    imgElement.src = getYouTubeThumbnail(values.videoLink.url);
     imgElement.alt = "Miniatura del video";
     imgElement.style.width = "100%";
 
@@ -102,9 +101,6 @@ unlayer.registerTool({
 }
   
 function getYouTubeThumbnail(url) {
-    if (!url) return "";
-    if (typeof url === "object" && url.href) url = url.href;
-
     const match = url.match(/(?:v=|youtu\.be\/|embed\/|\/v\/|\/e\/|watch\?v=|watch\?.+&v=)([^&]+)/);
     return match ? `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg` : "";
 }
