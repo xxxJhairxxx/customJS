@@ -34,7 +34,7 @@ unlayer.registerTool({
             defaultValue: {
               name: "video",
               values: {
-                href: "",
+                href: "https://www.youtube.com/watch?v=pjaozqqkuo0",
                 target: "_blank",
               },
             },
@@ -78,30 +78,36 @@ unlayer.registerTool({
   
   function getContainer(values) {
     const container = document.createElement("div");
-    container.style.backgroundColor = values.backgroundColor;
-    container.style.color = values.textColor;
-  
+    container.style.backgroundColor = values.backgroundColor || "#000"; 
+    container.style.color = values.textColor || "#FFF"; 
+
     const textElement = document.createElement("p");
-    textElement.textContent = values.textTitle;
-  
+    textElement.textContent = values.textTitle || "Texto predeterminado";
+
     const enlace = document.createElement("a");
-    enlace.href = values.videoLink;
+    const videoUrl = typeof values.videoLink === "object" ? values.videoLink.href : values.videoLink;
+    enlace.href = videoUrl || "#";
     enlace.target = "_blank";
-  
+
     const imgElement = document.createElement("img");
-    imgElement.src= getYouTubeThumbnail(values.videoLink);
-    imgElement.alt = "imagen";
+    imgElement.src = getYouTubeThumbnail(videoUrl);
+    imgElement.alt = "Miniatura del video";
     imgElement.style.width = "100%";
-  
+
     enlace.appendChild(imgElement);
     container.appendChild(textElement);
     container.appendChild(enlace);
-  
+
     return container.outerHTML;
-  }
+}
   
-  function getYouTubeThumbnail(url) {
-    const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
-    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-  }
+function getYouTubeThumbnail(url) {
+    if (!url) return "";
+    if (typeof url === "object" && url.href) url = url.href;
+
+    const match = url.match(/(?:v=|youtu\.be\/|embed\/|\/v\/|\/e\/|watch\?v=|watch\?.+&v=)([^&]+)/);
+    return match ? `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg` : "";
+}
+
+
   
