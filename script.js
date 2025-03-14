@@ -32,7 +32,7 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        return `<div>I am a custom tool.</div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
            <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
         `;
       },
@@ -51,7 +51,7 @@ unlayer.registerTool({
     },
     head: {
       css: function (values) {
-        return `#${values._meta.htmlID} { background-color: ${values.backgroundColor}; color: ${values.textColor}; }`;
+        return `#${values._meta.htmlID} `;
       },
       js: function (values) {
         return `console.log("Tool JavaScript");`;
