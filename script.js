@@ -18,10 +18,12 @@ unlayer.registerTool({
           defaultValue: '#FF0000',
           widget: 'color_picker',
         },
-        image:{
-          label:'carga imagen',
-          defaultValue:'https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg',
-          widget:'image'
+        imageBanner: {
+          label: 'carga imagen',
+          defaultValue: {
+            url: 'https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg'
+          },
+          widget: 'image'
         }
       },
     },
@@ -31,19 +33,19 @@ unlayer.registerTool({
     Viewer: unlayer.createViewer({
       render(values) {
         return `<div>I am a custom tool.</div>
-           <img src="${values.image}" alt="imagen" width="100" height="100">
+           <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
         `;
       },
     }),
     exporters: {
       web: function (values) {
         return `<div>I am a custom tool.</div>
-              <img src="${values.image}" alt="imagen" width="100" height="100">
+              <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
           `;
       },
       email: function (values) {
         return `<div>I am a custom tool.</div>
-             <img src="${values.image}" alt="imagen" width="100" height="100">
+             <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
         `;
       },
     },
