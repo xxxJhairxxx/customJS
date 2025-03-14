@@ -39,19 +39,19 @@ unlayer.registerTool({
         
         render(values) {
          
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"></div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
                  <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
         },
       }),
       exporters: {
         web: function (values) {
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"></div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
                     <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
                 `;
         },
         email: function (values) {
-        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"></div>
+        return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">I am a custom tool.</div>
                    <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
         },
