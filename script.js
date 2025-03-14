@@ -10,7 +10,7 @@ unlayer.registerTool({
       options: {
         textColor: {
           label: 'Text Color',
-          defaultValue: '#FF0000',
+          defaultValue: '#FFF',
           widget: 'color_picker',
         },
         backgroundColor: {
