@@ -101,9 +101,10 @@ unlayer.registerTool({
     imgElement.alt = "imagen";
     imgElement.style.width = "100%";
   
-    enlace.appendChild();
+    enlace.appendChild(imgElement);
   
     container.appendChild(textElement);
+    container.appendChild(enlace);
   
     return container.outerHTML;
   }
