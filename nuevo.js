@@ -13,7 +13,7 @@ unlayer.registerTool({
             defaultValue: {
               name: "video",
               values: {
-                href: "https://www.youtube.com/watch?v=pjaozqqkuo0",
+                href: "",
                 target: "_blank",
               },
             },
@@ -60,7 +60,7 @@ unlayer.registerTool({
     const container = document.createElement("div");
     container.setAttribute(
       "style",
-      "width: 100%; min-height: 270px; position: relative;"
+      "width: 100%; min-height: 270px; position: relative;border: 1px solid #D4D4D4;background-color: #fff;"
     );
   
     const enlace = document.createElement("a");
