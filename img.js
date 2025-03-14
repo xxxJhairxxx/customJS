@@ -46,33 +46,7 @@ unlayer.registerTool({
       },
       head: {
         css: function (values) {
-          return `.video{
-                   
-                    &.video-container {
-                      position: absolute;
-                      top: 0;
-                      left: 0;
-                      width: 100%;
-                      height: 100%;
-                      display: block; 
-                    }
-                    &.video-icon{
-                        width: 100%;
-                        width: 100%;
-                        pointer-events: none;
-                        position: absolute;
-                        .svg{
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            pointer-events: none;
-                        }
-                    }
-              }
-              .img{
-                        width: 100%;
-                      }      
+          return `
               `;
         },
         js: function (values) {
@@ -107,7 +81,7 @@ unlayer.registerTool({
         `;
     const imgElement = document.createElement("img");
     imgElement.classList.add("img");
-    // imgElement.setAttribute("style", "width: 100%;");
+    imgElement.setAttribute("style", "width: 100%;");
     imgElement.src = getYouTubeThumbnail(values.videoLink.url);
     imgElement.alt = "Miniatura del video";
   
