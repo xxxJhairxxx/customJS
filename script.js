@@ -37,19 +37,19 @@ unlayer.registerTool({
     renderer: {
       Viewer: unlayer.createViewer({
         render(values) {
-          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"> ${values.Text}</div>
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"> ${values.textEdith}</div>
                  <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
         },
       }),
       exporters: {
         web: function (values) {
-          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.Text}</div>
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.textEdith}</div>
                     <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
                 `;
         },
         email: function (values) {
-          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.Text}</div>
+          return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.textEdith}</div>
                    <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
               `;
         },
