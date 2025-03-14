@@ -9,32 +9,26 @@ unlayer.registerTool({
         position: 1,
         options: {
           textEdith: {
-            title: "Editar texto",
-            position: 1,
-            options: {
-              Text: {
-                  label: "Texto",
-                  defaultValue: "I am a custom tool.",
-                  widget: "text"
-              },
-              textColor: {
-                label: "Text Color",
-                defaultValue: "#f54242",
-                widget: "color_picker",
-              },
-              backgroundColor: {
-                label: "Background Color",
-                defaultValue: "#000",
-                widget: "color_picker",
-              },
-              imageBanner: {
-                label: "carga imagen",
-                defaultValue: {
-                  url: "https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg",
-                },
-                widget: "image",
-              },
+            label: "Texto",
+            defaultValue: "I am a custom tool.",
+            widget: "text",
+          },
+          textColor: {
+            label: "Text Color",
+            defaultValue: "#f54242",
+            widget: "color_picker",
+          },
+          backgroundColor: {
+            label: "Background Color",
+            defaultValue: "#000",
+            widget: "color_picker",
+          },
+          imageBanner: {
+            label: "carga imagen",
+            defaultValue: {
+              url: "https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg",
             },
+            widget: "image",
           },
         },
       },
@@ -44,20 +38,20 @@ unlayer.registerTool({
       Viewer: unlayer.createViewer({
         render(values) {
           return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};"> ${values.Text}</div>
-               <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
-            `;
+                 <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
+              `;
         },
       }),
       exporters: {
         web: function (values) {
           return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.Text}</div>
-                  <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
-              `;
+                    <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
+                `;
         },
         email: function (values) {
           return `<div style="background-color: ${values.backgroundColor}; color: ${values.textColor};">${values.Text}</div>
-                 <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
-            `;
+                   <img src="${values.imageBanner.url}" alt="imagen" width="100" height="100">
+              `;
         },
       },
       head: {
