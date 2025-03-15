@@ -36,7 +36,7 @@ unlayer.registerPropertyEditor({
   }),
 });
 
-unlayer.registerTool({
+setTimeout(() => { unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
   icon: 'fa-smile',
@@ -77,4 +77,4 @@ unlayer.registerTool({
       js: function (values) {},
     },
   },
-})
+}) }, 1000);
