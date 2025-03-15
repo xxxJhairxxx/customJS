@@ -45,7 +45,7 @@ position: 1,
         return `#${values._meta.htmlID} { background-color: ${values.backgroundColor}; color: ${values.textColor}; }`;
       },
       js: function (values) {
-        return `console.log("Tool JavaScript");`;
+        return `console.log(unlayer);`;
       },
     },
     },
