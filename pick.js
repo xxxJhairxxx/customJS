@@ -1,4 +1,4 @@
-setTimeout(() => { unlayer.registerTool({
+unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
   icon: 'fa-smile',
@@ -39,4 +39,4 @@ setTimeout(() => { unlayer.registerTool({
       js: function (values) {},
     },
   },
-}) }, 100);
+})
