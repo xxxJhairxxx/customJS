@@ -39,4 +39,4 @@ setTimeout(() => { unlayer.registerTool({
       js: function (values) {},
     },
   },
-}) }, 1000);
+}) }, 100);
