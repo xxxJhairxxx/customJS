@@ -25,3 +25,5 @@ unlayer.registerTool({
       },
     },
   });
+
+  console.log('my-tool.js loaded');
