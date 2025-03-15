@@ -100,5 +100,3 @@ function getYouTubeThumbnail(url) {
   const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
-
-  
