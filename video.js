@@ -11,7 +11,7 @@ position: 1,
         options:{
           videoLink: {
             label: "Enlace del video",
-            defaultValue:"",
+            defaultValue:"https://www.youtube.com/watch?v=w1uM9QfKwEk",
             widget: "text",
           },
             
