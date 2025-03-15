@@ -83,9 +83,11 @@ position: 1,
   
 
 
-  const p =document.createElement('p');
- p.innerText= `name: ${values.data.name}`
-    container.appendChild(p);
+//   const p =document.createElement('p');
+//  p.innerText= `name: ${values.data.name}`
+//     container.appendChild(p);
+
+
     enlace.appendChild(imgElement);
     container.appendChild(enlace);
     container.appendChild(svgIcon);
