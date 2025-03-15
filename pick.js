@@ -1,1 +1,1 @@
-unlayer.registerTool();
+// unlayer.registerTool();
