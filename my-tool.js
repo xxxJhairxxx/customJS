@@ -3,7 +3,6 @@
         name: 'my_tool',
         label: 'My Tool',
         icon: 'fa-smile',
-        type:'sape',
         supportedDisplayModes: ['email'],
         options: {},
         values: {},
