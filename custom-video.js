@@ -16,7 +16,7 @@ unlayer.registerTool({
         },
 
         //   imageBanner: {
-        //     label: "Carga imagen",
+        //     label: "Carga miniatura personalizada",
         //     defaultValue: {
         //       url: "https://i.ytimg.com/vi/pWoxDjQ70EE/maxresdefault.jpg",
         //     },
@@ -81,13 +81,6 @@ function getContainer(values) {
   imgElement.src = getYouTubeThumbnail(values.videoLink);
   imgElement.alt = "Miniatura del video";
 
-
-
-  //   const p =document.createElement('p');
-  //  p.innerText= `name: ${values.data.name}`
-  //     container.appendChild(p);
-
-
   enlace.appendChild(imgElement);
   container.appendChild(enlace);
   container.appendChild(svgIcon);
@@ -100,3 +93,6 @@ function getYouTubeThumbnail(url) {
   const videoId = url.split("v=")[1]?.split("&")[0]; // Extrae el ID del video
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
+
+
+console.log(unlayer)
