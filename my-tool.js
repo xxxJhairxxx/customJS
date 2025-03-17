@@ -92,4 +92,4 @@
 // });
 
 // console.log(unlayer.tools);
-// console.log('unlayer : ', unlayer);
+ console.log('unlayer : ', unlayer);
