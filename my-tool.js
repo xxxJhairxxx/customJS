@@ -29,58 +29,67 @@
 //     console.log('my-tool.js registered');
 //   });
 
-const tools = [
-  {
-    id:"custom-text",
-    name: "custom-text",
-    label: "Texto Personalizado",
-    icon: "fa-font",
-    supportedContent: ["text"],
-    options: {
-      fontSize: {
-        label: "Tamaño de Fuente",
-        type: "number",
-        defaultValue: 16,
-      },
-    },
-    renderer: {
-      Viewer: (data) => `<p style="font-size: ${data.fontSize}px;">Texto personalizado</p>`,
+unlayer.registerTool({
+  id: "custom-text",
+  name: "custom-text",
+  label: "Texto Personalizado",
+  icon: "fa-font",
+  supportedContent: ["text"],
+  options: {
+    fontSize: {
+      label: "Tamaño de Fuente",
+      type: "number",
+      defaultValue: 16,
     },
   },
-  {
-    id: "custom-image",
-    name: "custom-image",
-    label: "Imagen Personalizada",
-    icon: "fa-image",
-    supportedContent: ["image"],
-    options: {
-      borderRadius: {
-        label: "Radio del Borde",
-        type: "number",
-        defaultValue: 10,
-      },
+  renderer: {
+    Viewer: (values) =>
+      `<p style="font-size: ${values.fontSize}px;" >Texto personalizado</p>`,
+  },
+  exporters: {
+    web: function (values) {
+      return `<p style="font-size: ${values.fontSize}px;" >Texto personalizado</p>`;
     },
-    renderer: {
-      Viewer: (data) => `<img src="https://via.placeholder.com/150" style="border-radius: ${data.borderRadius}px;">`,
+    email: function (values) {
+      return `<p style="font-size: ${values.fontSize}px;" >Texto personalizado</p>`;
     },
   },
-];
+  head: {
+    css: function (values) {},
+    js: function (values) {},
+  },
+});
 
-// Registrar herramientas con una pequeña espera entre cada una
-async function registerTools() {
-  for (const tool of tools) {
-    await new Promise((resolve) => {
-      unlayer.registerTool(tool);
-      console.log(`✅ Registrado: ${tool.name}`);
-      setTimeout(resolve, 500); // Esperar 500ms antes del siguiente registro
-    });
-  }
-}
+unlayer.registerTool({
+  id:"custom-image",
+  name: "custom-image",
+  label: "Imagen Personalizada",
+  icon: "fa-image",
+  supportedContent: ["image"],
+  options: {
+    borderRadius: {
+      label: "Radio del Borde",
+      type: "number",
+      defaultValue: 10,
+    },
+  },
+  renderer: {
+    Viewer: (values) =>
+      `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`,
+  },
+  exporters: {
+    web: function (values) {
+      return `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`;
+    },
+    email: function (values) {
+      return `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`;
+    },
+  },
+  head: {
+    css: function (values) {},
+    js: function (values) {},
+  },
+});
 
-registerTools();
-
-
-
-console.log(typeof unlayer.registerTools); // Debería devolver "function" si existe
-
+console.log(unlayer.tools);
 console.log('unlayer : ', unlayer);
