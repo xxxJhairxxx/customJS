@@ -88,3 +88,6 @@ unlayer.registerTool({
     js: function (values) {},
   },
 });
+
+console.log(unlayer.tools);
+console.log('unlayer : ', unlayer);
