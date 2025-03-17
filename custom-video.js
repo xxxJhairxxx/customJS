@@ -1,5 +1,4 @@
 unlayer.registerTool({
-  id: 123,
   name: "custom_video",
   label: "video",
   type: "customize",
