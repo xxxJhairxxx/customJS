@@ -31,6 +31,7 @@
 
 const tools = [
   {
+    id:"custom-text",
     name: "custom-text",
     label: "Texto Personalizado",
     icon: "fa-font",
@@ -47,6 +48,7 @@ const tools = [
     },
   },
   {
+    id: "custom-image",
     name: "custom-image",
     label: "Imagen Personalizada",
     icon: "fa-image",
@@ -79,5 +81,6 @@ registerTools();
 
 
 
-console.log(unlayer.tools);
+console.log(typeof unlayer.registerTools); // Debería devolver "function" si existe
+
 console.log('unlayer : ', unlayer);
