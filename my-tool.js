@@ -29,7 +29,8 @@
 //     console.log('my-tool.js registered');
 //   });
 
-editor.registerTool({
+
+unlayer.registerTool({
   name: "custom-text",
   label: "Texto Personalizado",
   icon: "fa-font",
@@ -42,24 +43,11 @@ editor.registerTool({
     },
   },
   renderer: {
-    Viewer: (values) =>
-      `<p style="font-size: ${values.fontSize}px;">Texto personalizado</p>`,
-  },
-  exporters: {
-    web: function (values) {
-      return `<p style="font-size: ${values.fontSize}px;">Texto personalizado</p>`;
-    },
-    email: function (values) {
-      return `<p style="font-size: ${values.fontSize}px;">Texto personalizado</p>`;
-    },
-  },
-  head: {
-    css: function (values) {},
-    js: function (values) {},
+    Viewer: (data) => `<p style="font-size: ${data.fontSize}px;">Texto personalizado</p>`,
   },
 });
 
-editor.registerTool({
+unlayer.registerTool({
   name: "custom-image",
   label: "Imagen Personalizada",
   icon: "fa-image",
@@ -72,19 +60,6 @@ editor.registerTool({
     },
   },
   renderer: {
-    Viewer: (values) =>
-      `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`,
-  },
-  exporters: {
-    web: function (values) {
-      return `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`;
-    },
-    email: function (values) {
-      return `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`;
-    },
-  },
-  head: {
-    css: function (values) {},
-    js: function (values) {},
+    Viewer: (data) => `<img src="https://via.placeholder.com/150" style="border-radius: ${data.borderRadius}px;">`,
   },
 });
