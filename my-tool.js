@@ -29,65 +29,49 @@
 //     console.log('my-tool.js registered');
 //   });
 
-unlayer.registerTool({
-  name: "custom-text",
-  label: "Texto Personalizado",
-  icon: "fa-font",
-  supportedContent: ["text"],
-  options: {
-    fontSize: {
-      label: "Tamaño de Fuente",
-      type: "number",
-      defaultValue: 16,
+const tools = [
+  {
+    name: "custom-text",
+    label: "Texto Personalizado",
+    icon: "fa-font",
+    supportedContent: ["text"],
+    options: {
+      fontSize: {
+        label: "Tamaño de Fuente",
+        type: "number",
+        defaultValue: 16,
+      },
+    },
+    renderer: {
+      Viewer: (data) => `<p style="font-size: ${data.fontSize}px;">Texto personalizado</p>`,
     },
   },
-  renderer: {
-    Viewer: (values) =>
-      `<p style="font-size: ${values.fontSize}px;" >Texto personalizado</p>`,
-  },
-  exporters: {
-    web: function (values) {
-      return `<p style="font-size: ${values.fontSize}px;" >Texto personalizado</p>`;
+  {
+    name: "custom-image",
+    label: "Imagen Personalizada",
+    icon: "fa-image",
+    supportedContent: ["image"],
+    options: {
+      borderRadius: {
+        label: "Radio del Borde",
+        type: "number",
+        defaultValue: 10,
+      },
     },
-    email: function (values) {
-      return `<p style="font-size: ${values.fontSize}px;" >Texto personalizado</p>`;
+    renderer: {
+      Viewer: (data) => `<img src="https://via.placeholder.com/150" style="border-radius: ${data.borderRadius}px;">`,
     },
   },
-  head: {
-    css: function (values) {},
-    js: function (values) {},
-  },
+];
+
+// Registrar herramientas con una pequeña espera entre cada una
+tools.forEach((tool, index) => {
+  setTimeout(() => {
+    unlayer.registerTool(tool);
+    console.log(`✅ Registrado: ${tool.name}`);
+  }, index * 500); // Espera 500ms entre registros
 });
 
-unlayer.registerTool({
-  name: "custom-image",
-  label: "Imagen Personalizada",
-  icon: "fa-image",
-  supportedContent: ["image"],
-  options: {
-    borderRadius: {
-      label: "Radio del Borde",
-      type: "number",
-      defaultValue: 10,
-    },
-  },
-  renderer: {
-    Viewer: (values) =>
-      `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`,
-  },
-  exporters: {
-    web: function (values) {
-      return `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`;
-    },
-    email: function (values) {
-      return `<img src="https://via.placeholder.com/150" style="border-radius: ${values.borderRadius}px;">`;
-    },
-  },
-  head: {
-    css: function (values) {},
-    js: function (values) {},
-  },
-});
 
 console.log(unlayer.tools);
 console.log('unlayer : ', unlayer);
