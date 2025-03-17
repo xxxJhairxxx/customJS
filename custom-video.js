@@ -50,6 +50,8 @@ unlayer.registerTool({
         return `console.log(unlayer);`;
       },
     },
+  }, validator(data) {
+    return [];
   },
 });
 

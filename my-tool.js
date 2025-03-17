@@ -25,6 +25,8 @@
           css: function (values) {},
           js: function (values) {},
         },
+      }, validator(data) {
+        return [];
       },
     });
 
