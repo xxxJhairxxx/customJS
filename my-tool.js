@@ -65,12 +65,18 @@ const tools = [
 ];
 
 // Registrar herramientas con una pequeña espera entre cada una
-tools.forEach((tool, index) => {
-  setTimeout(() => {
-    unlayer.registerTool(tool);
-    console.log(`✅ Registrado: ${tool.name}`);
-  }, index * 500); // Espera 500ms entre registros
-});
+async function registerTools() {
+  for (const tool of tools) {
+    await new Promise((resolve) => {
+      unlayer.registerTool(tool);
+      console.log(`✅ Registrado: ${tool.name}`);
+      setTimeout(resolve, 500); // Esperar 500ms antes del siguiente registro
+    });
+  }
+}
+
+registerTools();
+
 
 
 console.log(unlayer.tools);
