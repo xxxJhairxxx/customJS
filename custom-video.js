@@ -97,39 +97,18 @@ function getYouTubeThumbnail(url) {
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
-unlayer.registerProvider('blocks', (params, done) => {
-        // Aquí defines un array con la configuración JSON de tus bloques
-        const myCustomBlocks = [
-          {
-            name: 'my_block_1',
-            label: 'Bloque 1',
-            icon: 'fa-star',
-            // estructura mínima de un bloque Unlayer:
-            content: {
-              rows: [
-                {
-                  cells: [1],
-                  columns: [
-                    {
-                      contents: [
-                        {
-                          type: 'text',
-                          values: { text: '<p>¡Este es mi bloque 1!</p>' }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          },
-          // …más bloques…
-        ];
-      
-        // “done” recibe el array de bloques que quieres exponer
-        done(myCustomBlocks);
-      });
-      
-      // Si agregas o quitas bloques dinámicamente, recarga:
-      unlayer.reloadProvider('blocks');
+unlayer.registerTab({
+  name: 'my_tab',
+  label: 'My Tab',
+  icon: 'fa-smile',
+  supportedDisplayModes: ['web', 'email'],
+  renderer: {
+    Panel: unlayer.createPanel({
+      render() {
+        return '<div>I am a custom tab.</div>';
+      },
+    }),
+  },
+});
+
 console.log(unlayer)
